@@ -4,7 +4,7 @@
 
 > XDR uses a base unit of 4 bytes, serialized in big-endian order; smaller data types still occupy four bytes each after encoding. Variable-length types such as string and opaque are padded to a total divisible by four bytes.
 
-## XDR Streams
+## XDR Stream Access
 
 |Files | In-Memory| Record | 
 |-|-|-|
@@ -14,6 +14,8 @@ Must specify the below operations :
 - XDR_ENCODE : serialise (encode) in-memory structures onto the wire.
 - XDR_DECODE : deserialise (decode) from the wire into in-memory structures.
 - XDR_FREE : free an in-memory structure. 
+
+FYI: [Custom XDR Stream Implementation](https://docs.oracle.com/cd/E23824_01/html/821-1671/xdrnts-65172.html)
 
 ## XDR over ØMQ
 
