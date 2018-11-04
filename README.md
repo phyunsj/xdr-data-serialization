@@ -6,14 +6,18 @@
 
 ## XDR Streams
 
-|Files | In-Memory| Record | Custom |
-|-|-|-|-|
-|xdrstdio_cretae|xdrmem_create|xdrrec_create| ? |
+|Files | In-Memory| Record | 
+|-|-|-|
+|xdrstdio_cretae|xdrmem_create|xdrrec_create||
 
 Must specify the below operations :
 - XDR_ENCODE : serialise (encode) in-memory structures onto the wire.
 - XDR_DECODE : deserialise (decode) from the wire into in-memory structures.
 - XDR_FREE : free an in-memory structure. 
+
+## XDR over ØMQ
+
+TBD
 
 ## Related Posts
 
