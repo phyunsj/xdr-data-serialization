@@ -6,14 +6,19 @@
 
 ## XDR Stream Access
 
-|Files | In-Memory| Record | 
+| Files | In-Memory | Record (TCP/IP) | 
 |-|-|-|
-|xdrstdio_cretae|xdrmem_create|xdrrec_create||
+|xdrstdio_create|xdrmem_create|xdrrec_create||
 
 Must specify the below operations :
 - XDR_ENCODE : serialise (encode) in-memory structures onto the wire.
 - XDR_DECODE : deserialise (decode) from the wire into in-memory structures.
 - XDR_FREE : free an in-memory structure. 
+
+For example,
+```
+xdrstdio_create(&xdr, stdout, XDR_ENCODE) ;
+```
 
 FYI: [Custom XDR Stream Implementation](https://docs.oracle.com/cd/E23824_01/html/821-1671/xdrnts-65172.html)
 
