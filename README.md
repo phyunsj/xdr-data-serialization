@@ -20,9 +20,36 @@ For example,
 xdrstdio_create(&xdr, stdout, XDR_ENCODE) ;
 ```
 
-## XDR over ØMQ
+## Example : XDR over ØMQ
 
-TBD
+Combined ONC/RPC rls & ØMQ Request-Reply Sample. 
+
+```
+$ make
+gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls.o rls.c
+gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls.o dir.o -o rls
+gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls_svc.o rls_svc.c
+gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls_svc.o dir.o -o rls_svc
+
+$ ./rls_svc
+
+$ ./rls .
+Connecting to rls erver
+.
+..
+rls.o
+rls
+rls_svc.o
+Makefile
+rls_svc
+dir.c
+dir.x
+rls.c
+rls_svc.c
+dir.h
+dir.o
+
+```
 
 ## Related Posts
 
