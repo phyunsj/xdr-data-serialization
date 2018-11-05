@@ -35,7 +35,7 @@ gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls.o dir.o -o rls
 gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls_svc.o rls_svc.c
 gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls_svc.o dir.o -o rls_svc
 
-$ ./rls_svc
+$ ./rls_svc &
 
 $ ./rls .
 Connecting to rls server
@@ -55,7 +55,7 @@ dir.o
 
 ```
 
-Decode the response(zmq_msg_t) from `zmq_recv()`.
+:book: Code Snippet : Decode the response(zmq_msg_t) from `zmq_recv()`.
 
 ```
 read_reply (char *response, int response_size)
