@@ -51,7 +51,7 @@ dir.o
 
 ```
 
-Decode the response(zmq_msg) from `zmg_recv` and Print the content.
+Decode the response(zmq_msg_t) from `zmq_recv()`.
 
 ```
 read_reply (char *response, int response_size)
