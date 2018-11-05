@@ -26,10 +26,12 @@ xdrstdio_create(&xdr, stdout, XDR_ENCODE) ;
 
 ## Example : XDR over ØMQ
 
-Combined ONC/RPC `rls` & ØMQ Request-Reply Sample. 
+Combined ONC/RPC [`rls`](https://docs.oracle.com/cd/E19683-01/816-1435/6m7rrfn7f/index.html) & ØMQ Request-Reply [Sample](http://zguide.zeromq.org/c:rrclient). 
 
 ```
 $ make
+rpcgen -h -o dir.h dir.x
+rpcgen -c -o dir.c dir.x
 gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls.o rls.c
 gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls.o dir.o -o rls
 gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls_svc.o rls_svc.c
@@ -84,3 +86,4 @@ read_reply (char *response, int response_size)
 - [XDR : Technical Notes](https://docs.oracle.com/cd/E23824_01/html/821-1671/xdrnts-21693.html#scrolltoc) from Oracle
 - [GNU libc:XDR parser](https://archive.is/20150213112723/https://sourceware.org/git/?p=glibc.git;a=tree;f=sunrpc;hb=HEAD)
 - [Custom XDR Stream Implementation](https://docs.oracle.com/cd/E23824_01/html/821-1671/xdrnts-65172.html)
+- [XDR allocate, free and destroy](http://people.redhat.com/rjones/xdr_tests/)
