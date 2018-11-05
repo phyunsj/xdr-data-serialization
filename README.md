@@ -22,7 +22,7 @@ xdrstdio_create(&xdr, stdout, XDR_ENCODE) ;
 
 ## Example : XDR over ØMQ
 
-Combined ONC/RPC rls & ØMQ Request-Reply Sample. 
+Combined ONC/RPC `rls` & ØMQ Request-Reply Sample. 
 
 ```
 $ make
@@ -34,7 +34,7 @@ gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls_svc.o dir.o -o rls_svc
 $ ./rls_svc
 
 $ ./rls .
-Connecting to rls erver
+Connecting to rls server
 .
 ..
 rls.o
@@ -49,6 +49,27 @@ rls_svc.c
 dir.h
 dir.o
 
+```
+
+Decode the response(zmq_msg) from `zmg_recv` and Print the content.
+
+```
+read_reply (char *response, int response_size)
+{
+  XDR xdr;
+  readdir_res result = { 0 };
+
+  xdrmem_create (&xdr, response, response_size , XDR_DECODE);
+  if (!xdr_readdir_res (&xdr, &result)) {
+      fprintf (stderr, "read_reply: could not decode\n");
+      exit (1);
+  }
+
+  print_reply( &result );
+	  
+  xdr_free ((xdrproc_t) xdr_readdir_res, (char *) &result);
+  xdr_destroy (&xdr);
+}
 ```
 
 ## Related Posts
