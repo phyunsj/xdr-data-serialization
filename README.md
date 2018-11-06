@@ -26,7 +26,7 @@ xdrstdio_create(&xdr, stdout, XDR_ENCODE) ;
 
 ## Example : XDR over ØMQ
 
-Combined ONC/RPC [`rls`](https://docs.oracle.com/cd/E19683-01/816-1435/6m7rrfn7f/index.html) & ØMQ Request-Reply [Sample](http://zguide.zeromq.org/c:rrclient). 
+Combined ONC/RPC [`rls`](https://github.com/phyunsj/oncrpc-api-design/tree/master/rls) & ØMQ Request-Reply [Sample](http://zguide.zeromq.org/c:rrclient). 
 
 ```
 $ make
@@ -60,7 +60,7 @@ dir.o
 
 ```
 
-:book: Code Snippet : Decode the response(zmq_msg_t) from `zmq_recv()`.
+:book: Code Snippet : Decode zmg response from `zmq_recv()`.
 
 ```
 read_reply (char *response, int response_size)
