@@ -60,7 +60,7 @@ dir.o
 
 ```
 
-:book: Code Snippet : Decode zmg response from `zmq_recv()`.
+:book: Code Snippet : Decode zmq response from `zmq_recv()`.
 
 ```
 read_reply (char *response, int response_size)
