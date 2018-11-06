@@ -30,9 +30,12 @@ Combined ONC/RPC [`rls`](https://docs.oracle.com/cd/E19683-01/816-1435/6m7rrfn7f
 
 ```
 $ make
-rpcgen -h -o dir.h dir.x
+rm -f dir.c
 rpcgen -c -o dir.c dir.x
+rm -f dir.h
+rpcgen -h -o dir.h dir.x
 gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls.o rls.c
+gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o dir.o dir.c
 gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls.o dir.o -o rls
 gcc -g -Wall -Wno-unused -Werror -Wformat   -c -o rls_svc.o rls_svc.c
 gcc -g -Wall -Wno-unused -Werror -Wformat -lzmq rls_svc.o dir.o -o rls_svc
